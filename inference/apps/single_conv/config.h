@@ -1,0 +1,5 @@
+#define INPUT_CHANNEL 64
+#define INPUT_HEIGHT 16
+#define INPUT_WIDTH 16
+#define ARENA_SIZE 2000 * 1024
+#define APP_NAME "SINGLE CONV 0.90"

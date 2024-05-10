@@ -1,0 +1,5 @@
+#define INPUT_CHANNEL 3
+#define INPUT_HEIGHT 32
+#define INPUT_WIDTH 32
+#define ARENA_SIZE 500 * 1024
+#define APP_NAME "ResNet12 GTSRB"

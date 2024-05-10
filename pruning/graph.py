@@ -1,0 +1,431 @@
+VGG11_GRAPH = [{
+    'id': 0,
+    'name': 'block_1_conv_1',
+    'from': [-1],
+    'to': [1],
+    'prune': True,
+    'type': 'conv'
+}, {
+    'id': 1,
+    'name': 'block_1_conv_2',
+    'from': [0],
+    'to': [2],
+    'prune': True,
+    'type': 'conv'
+}, {
+    'id': 2,
+    'name': 'block_2_conv_1',
+    'from': [1],
+    'to': [3],
+    'prune': True,
+    'type': 'conv'
+}, {
+    'id': 3,
+    'name': 'block_2_conv_2',
+    'from': [2],
+    'to': [4],
+    'prune': True,
+    'type': 'conv'
+}, {
+    'id': 4,
+    'name': 'block_3_conv_1',
+    'from': [3],
+    'to': [5],
+    'prune': True,
+    'type': 'conv'
+}, {
+    'id': 5,
+    'name': 'block_3_conv_2',
+    'from': [4],
+    'to': [6],
+    'prune': True,
+    'type': 'conv'
+}, {
+    'id': 6,
+    'name': 'block_3_conv_3',
+    'from': [5],
+    'to': [7],
+    'prune': True,
+    'type': 'conv'
+}, {
+    'id': 7,
+    'name': 'block_4_conv_1',
+    'from': [6],
+    'to': [8],
+    'prune': True,
+    'type': 'conv'
+}, {
+    'id': 8,
+    'name': 'block_4_conv_2',
+    'from': [7],
+    'to': [9],
+    'prune': True,
+    'type': 'conv'
+}, {
+    'id': 9,
+    'name': 'block_4_conv_3',
+    'from': [8],
+    'to': [10],
+    'prune': True,
+    'type': 'conv'
+}, {
+    'id': 10,
+    'name': 'dense',
+    'from': [9],
+    'to': [],
+    'prune': False,
+    'type': 'fc'
+}]
+
+RESNET12_GRAPH = [{
+    'id': 0,
+    'name': 'conv_0',
+    'from': [-1],
+    'to': [1, 3],
+    'prune': True,
+    'type': 'conv'
+}, {
+    'id': 1,
+    'name': 'block_1_conv_1',
+    'from': [0],
+    'to': [2],
+    'prune': True,
+    'type': 'conv'
+}, {
+    'id': 2,
+    'name': 'block_1_conv_2',
+    'from': [1],
+    'to': [3],
+    'prune': True,
+    'type': 'conv'
+}, {
+    'id': 3,
+    'name': 'add',
+    'from': [0, 2],
+    'to': [4, 6],
+    'prune': False,
+    'type': 'add'
+}, {
+    'id': 4,
+    'name': 'block_2_conv_1',
+    'from': [3],
+    'to': [5],
+    'prune': True,
+    'type': 'conv'
+}, {
+    'id': 5,
+    'name': 'block_2_conv_2',
+    'from': [4],
+    'to': [7],
+    'prune': True,
+    'type': 'conv'
+}, {
+    'id': 6,
+    'name': 'block_2_shortcut',
+    'from': [3],
+    'to': [7],
+    'prune': True,
+    'type': 'conv'
+}, {
+    'id': 7,
+    'name': 'add_1',
+    'from': [5, 6],
+    'to': [8, 10],
+    'prune': False,
+    'type': 'add'
+}, {
+    'id': 8,
+    'name': 'block_3_conv_1',
+    'from': [7],
+    'to': [9],
+    'prune': True,
+    'type': 'conv'
+}, {
+    'id': 9,
+    'name': 'block_3_conv_2',
+    'from': [8],
+    'to': [11],
+    'prune': True,
+    'type': 'conv'
+}, {
+    'id': 10,
+    'name': 'block_3_shortcut',
+    'from': [7],
+    'to': [11],
+    'prune': True,
+    'type': 'conv'
+}, {
+    'id': 11,
+    'name': 'add_2',
+    'from': [9, 10],
+    'to': [12, 14],
+    'prune': False,
+    'type': 'add'
+}, {
+    'id': 12,
+    'name': 'block_4_conv_1',
+    'from': [11],
+    'to': [13],
+    'prune': True,
+    'type': 'conv'
+}, {
+    'id': 13,
+    'name': 'block_4_conv_2',
+    'from': [12],
+    'to': [15],
+    'prune': True,
+    'type': 'conv'
+}, {
+    'id': 14,
+    'name': 'block_4_shortcut',
+    'from': [11],
+    'to': [15],
+    'prune': True,
+    'type': 'conv'
+}, {
+    'id': 15,
+    'name': 'add_3',
+    'from': [13, 14],
+    'to': [16],
+    'prune': False,
+    'type': 'add'
+}, {
+    'id': 16,
+    'name': 'dense',
+    'from': [15],
+    'to': [],
+    'prune': False,
+    'type': 'fc'
+}]
+
+
+YOLO_GRAPH = [{
+    'id': 0,
+    'name': 'block_1_conv_1',
+    'from': [-1],
+    'to': [1],
+    'prune': True,
+    'type': 'conv'
+}, {
+    'id': 1,
+    'name': 'block_1_conv_2',
+    'from': [0],
+    'to': [2],
+    'prune': True,
+    'type': 'conv'
+}, {
+    'id': 2,
+    'name': 'block_2_conv_1',
+    'from': [1],
+    'to': [3],
+    'prune': True,
+    'type': 'conv'
+}, {
+    'id': 3,
+    'name': 'block_2_conv_2',
+    'from': [2],
+    'to': [4],
+    'prune': True,
+    'type': 'conv'
+}, {
+    'id': 4,
+    'name': 'block_3_conv_1',
+    'from': [3],
+    'to': [5],
+    'prune': True,
+    'type': 'conv'
+}, {
+    'id': 5,
+    'name': 'block_3_conv_2',
+    'from': [4],
+    'to': [6],
+    'prune': True,
+    'type': 'conv'
+}, {
+    'id': 6,
+    'name': 'block_4_conv_1',
+    'from': [5],
+    'to': [7],
+    'prune': True,
+    'type': 'conv'
+}, {
+    'id': 7,
+    'name': 'block_4_conv_2',
+    'from': [6],
+    'to': [8],
+    'prune': True,
+    'type': 'conv'
+}, {
+    'id': 8,
+    'name': 'block_4_conv_3',
+    'from': [7],
+    'to': [9],
+    'prune': True,
+    'type': 'conv'
+}, {
+    'id': 9,
+    'name': 'block_5_conv_1',
+    'from': [8],
+    'to': [10],
+    'prune': True,
+    'type': 'conv'
+}, {
+    'id': 10,
+    'name': 'block_5_conv_2',
+    'from': [9],
+    'to': [11],
+    'prune': True,
+    'type': 'conv'
+}, {
+    'id': 11,
+    'name': 'block_5_conv_3',
+    'from': [10],
+    'to': [12],
+    'prune': True,
+    'type': 'conv'
+}, {
+    'id': 12,
+    'name': 'conv_out',
+    'from': [11],
+    'to': [],
+    'prune': False,
+    'type': 'conv'
+}]
+
+RESNET12_GRAPH = [{
+    'id': 0,
+    'name': 'conv_0',
+    'from': [-1],
+    'to': [1, 3],
+    'prune': True,
+    'type': 'conv'
+}, {
+    'id': 1,
+    'name': 'block_1_conv_1',
+    'from': [0],
+    'to': [2],
+    'prune': True,
+    'type': 'conv'
+}, {
+    'id': 2,
+    'name': 'block_1_conv_2',
+    'from': [1],
+    'to': [3],
+    'prune': True,
+    'type': 'conv'
+}, {
+    'id': 3,
+    'name': 'add',
+    'from': [0, 2],
+    'to': [4, 6],
+    'prune': False,
+    'type': 'add'
+}, {
+    'id': 4,
+    'name': 'block_2_conv_1',
+    'from': [3],
+    'to': [5],
+    'prune': True,
+    'type': 'conv'
+}, {
+    'id': 5,
+    'name': 'block_2_conv_2',
+    'from': [4],
+    'to': [7],
+    'prune': True,
+    'type': 'conv'
+}, {
+    'id': 6,
+    'name': 'block_2_shortcut',
+    'from': [3],
+    'to': [7],
+    'prune': True,
+    'type': 'conv'
+}, {
+    'id': 7,
+    'name': 'add_1',
+    'from': [5, 6],
+    'to': [8, 10],
+    'prune': False,
+    'type': 'add'
+}, {
+    'id': 8,
+    'name': 'block_3_conv_1',
+    'from': [7],
+    'to': [9],
+    'prune': True,
+    'type': 'conv'
+}, {
+    'id': 9,
+    'name': 'block_3_conv_2',
+    'from': [8],
+    'to': [11],
+    'prune': True,
+    'type': 'conv'
+}, {
+    'id': 10,
+    'name': 'block_3_shortcut',
+    'from': [7],
+    'to': [11],
+    'prune': True,
+    'type': 'conv'
+}, {
+    'id': 11,
+    'name': 'add_2',
+    'from': [9, 10],
+    'to': [12, 14],
+    'prune': False,
+    'type': 'add'
+}, {
+    'id': 12,
+    'name': 'block_4_conv_1',
+    'from': [11],
+    'to': [13],
+    'prune': True,
+    'type': 'conv'
+}, {
+    'id': 13,
+    'name': 'block_4_conv_2',
+    'from': [12],
+    'to': [15],
+    'prune': True,
+    'type': 'conv'
+}, {
+    'id': 14,
+    'name': 'block_4_shortcut',
+    'from': [11],
+    'to': [15],
+    'prune': True,
+    'type': 'conv'
+}, {
+    'id': 15,
+    'name': 'add_3',
+    'from': [13, 14],
+    'to': [16],
+    'prune': False,
+    'type': 'add'
+}, {
+    'id': 16,
+    'name': 'dense',
+    'from': [15],
+    'to': [],
+    'prune': False,
+    'type': 'fc'
+}]
+
+
+GRAPH = {}
+
+def init_graph(model):
+    global GRAPH
+    if model == 'vgg11':
+        GRAPH = VGG11_GRAPH
+    elif model == 'resnet12':
+        GRAPH = RESNET12_GRAPH
+    elif model == 'yolo':
+        GRAPH = YOLO_GRAPH
+
+def get_graph():
+    global GRAPH
+    return GRAPH
+    
